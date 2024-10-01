@@ -1,9 +1,25 @@
 import mongoose from "mongoose";
 
 const userSchema = mongoose.Schema({
-    uname: String,
-    umobno: Number,
-    uemail: String,
+    uname: {
+        type: String,
+        required: [true, "Name is required"],
+        // unique: true
+    },
+    umobno: {
+        type: Number,
+        required: [true, "Mob No is Required"],
+
+    },
+    uemail: {
+        type: String,
+        required: [true, "Email is required"],
+        unique: true
+    },
+    gender: {
+        type: String,
+        enum: ['Male', "Female"]
+    },
     uaddesss: String
 })
 
